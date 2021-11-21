@@ -5,6 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Checkbox from '@material-ui/core/Checkbox';
+import Alert from '@mui/material/Alert'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { makeStyles } from '@material-ui/core/styles';
@@ -45,7 +46,7 @@ export const TodoItemsList = function () {
 
     return (
         <ul className={classes.root}>
-            {sortedItems.map((item) => (
+            {!todoItems.length ? <Alert severity='info'>"Задачи отсутствуют"</Alert> : sortedItems.map((item) => (
                 <motion.li key={item.id} transition={spring} layout={true}>
                     <TodoItemCard item={item} />
                 </motion.li>
